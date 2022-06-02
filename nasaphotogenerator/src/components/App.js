@@ -5,36 +5,34 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyle";
 import { lightTheme, darkTheme } from "./Themes";
 
-function CarGetter() {
-    const [cardDetails, setCardDetails] = useState([])
-    const [theme, setTheme] = useState('light');
-    const [randomDay, setRandomDay] = useState('01-01-2021')
-}
+function CardGetter() {
+  const [cardDetails, setCardDetails] = useState([])
+  const [theme, setTheme] = useState('light');
+  const [randomDay, setRandomDay] = useState('01-01-2021')
 
-const getRandom = () => {
+  const getRandom = () => {
     let year = (Math.floor(Math.random() * (2017 - 1995)) + 1995).toString();
     let month = (Math.floor(Math.random() * (13 - 1)) + 1).toString();
     let day = (Math.floor(Math.random() * (31 - 1)) + 1).toString();
 
     if (month.length === 1) {
-        month = ('0' + month);
-      }
-  
-      if (day.length === 1) {
-        day = ('0' + day);
-      }
-      setRandomDay(`${year}-${month}-${day}`)
-      axios.get(`https://api.nasa.gov/planetary/apod?date=${randomDay}&api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq`).then((response)=>{
+      month = ('0' + month);
+    }
+
+    if (day.length === 1) {
+      day = ('0' + day);
+    }
+
+    setRandomDay(`${year}-${month}-${day}`)
+
+    axios.get(`https://api.nasa.gov/planetary/apod?date=${randomDay}&api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq`).then((response)=>{
       setCardDetails(response.data)
     })
   }
 
   const themeToggler = () => {
-      theme === 'light' ? setTheme('dark') : setTheme('light');
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   }
-
-  let url = 'https://api.nasa.gov/planetary/apod?api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq'
-
   let url = 'https://api.nasa.gov/planetary/apod?api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq'
   useEffect(()=>{
     axios.get(url).then((response)=>{
@@ -135,3 +133,43 @@ const getRandom = () => {
     margin-right: 10%;
     text-align: left;
   `
+  return (
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <>
+      <GlobalStyles/>
+        <div App>
+          <Header className ='header'>
+            <H1 className = 'title'>NASA Photo Of The Day</H1>
+            <Nav>
+              <Button className = 'home-Button'>Home</Button>
+              <A className = 'contact-Button' target='_blank' href='https://www.linkedin.com/in/wrwphillips/'>Contact</A>
+              <Button className = 'random-Button' onClick={getRandom}>Get Random</Button>
+              <Button className = 'dark-mode-Button' onClick={themeToggler}>Dark Mode</Button>
+            </Nav>
+          </Header>
+          <PhotoCard className ='photoCard'>
+            <TitleDate className='titleDate'>
+            <H3 className='photoCardTitle'>{cardDetails.title}</H3>
+            <H3 className='photoCardDate'>{cardDetails.date}</H3>
+            </TitleDate> 
+            <BigImg className='photoCardImg' src={cardDetails.hdurl}></BigImg>
+            <P classname='photoCardDescription'>{cardDetails.explanation}</P>
+            <P className='photoCardCopyright'>{cardDetails.copyright}</P>   
+          </PhotoCard>
+        </div>
+    </>
+  </ThemeProvider>
+  )
+}
+function App() {
+  return (
+    <div className="App">
+      <CardGetter />
+    </div>
+    
+  );
+};
+
+export default App;
+  
+
