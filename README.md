@@ -1,2 +1,2 @@
 # NASA-PhotoGenerator
-Generates photo of the day from NASA or random past photos
+Generates photo of the day from NASA or randomized previous NASA photos of the day.
