@@ -1,7 +1,7 @@
 export const lightTheme = {
-    textColor: "black",
-    backgroundColor: "white",
-    borderColor: "black",
+  textColor: "black",
+  backgroundColor: "grey"
+  
   };
   
   export const darkTheme = {

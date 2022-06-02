@@ -9,6 +9,7 @@ function CardGetter() {
   const [cardDetails, setCardDetails] = useState([])
   const [theme, setTheme] = useState('light');
   const [randomDay, setRandomDay] = useState('01-01-2021')
+  
 
   const getRandom = () => {
     let year = (Math.floor(Math.random() * (2017 - 1995)) + 1995).toString();
@@ -27,19 +28,20 @@ function CardGetter() {
 
     axios.get(`https://api.nasa.gov/planetary/apod?date=${randomDay}&api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq`).then((response)=>{
       setCardDetails(response.data)
-    })
+    }, [])
   }
 
   const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
+    theme === 'dark' ? setTheme('dark') : setTheme('light');
   }
   let url = 'https://api.nasa.gov/planetary/apod?api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq'
   useEffect(()=>{
     axios.get(url).then((response)=>{
-      console.log(response.data)
+      
       setCardDetails(response.data)
     })
   })
+ 
   const Button = styled.button`
     display:inline-block;
     padding:0.35em 1.2em;
@@ -142,9 +144,9 @@ function CardGetter() {
             <H1 className = 'title'>NASA Photo Of The Day</H1>
             <Nav>
               <Button className = 'home-Button'>Home</Button>
-              <A className = 'contact-Button' target='_blank' href='https://www.linkedin.com/in/wrwphillips/'>Contact</A>
-              <Button className = 'random-Button' onClick={getRandom}>Get Random</Button>
-              <Button className = 'dark-mode-Button' onClick={themeToggler}>Dark Mode</Button>
+              <A className = 'contact-Button' target='_blank' href='https://www.linkedin.com/in/sam-bezzant/'>Contact</A>
+              <Button className = 'random-Button' onClick={getRandom}>Get Random Image</Button>
+              <Button className = 'dark-mode-Button' onClick={themeToggler}>Dark/Light  Mode</Button>
             </Nav>
           </Header>
           <PhotoCard className ='photoCard'>
