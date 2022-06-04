@@ -32,7 +32,7 @@ function CardGetter() {
   }
 
   const themeToggler = () => {
-    theme === 'dark' ? setTheme('dark') : setTheme('light');
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   }
   let url = 'https://api.nasa.gov/planetary/apod?api_key=ak9UJZ9J4bKzbshagI9bwVLLpTTVmnpWmAZRXbRq'
   useEffect(()=>{
