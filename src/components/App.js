@@ -7,7 +7,7 @@ import { lightTheme, darkTheme } from "./Themes";
 
 function CardGetter() {
   const [cardDetails, setCardDetails] = useState([])
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [randomDay, setRandomDay] = useState('01-01-2021')
   
 
