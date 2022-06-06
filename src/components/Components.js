@@ -63,6 +63,7 @@ export const Header = styled.div`
   margin-right: 10%;
   margin-top: 5%;
   text-align: center;
+  padding: 3%;
 `;
 
 export const Nav = styled.nav`
