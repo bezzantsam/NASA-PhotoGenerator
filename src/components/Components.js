@@ -53,7 +53,8 @@ export const H1 = styled.h1`
 `;
 
 export const Header = styled.div`
-  /* border: 0.5em solid ${(props) => props.theme.borderColor}; */
+  border-top: 0.5em solid ${(props) => props.theme.borderColor};
+  border-bottom: 0.5em solid ${(props) => props.theme.borderColor};
   display: flex;
   flex-flow: column;
   width: 80%;
