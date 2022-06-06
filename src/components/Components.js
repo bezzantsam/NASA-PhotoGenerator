@@ -53,7 +53,7 @@ export const H1 = styled.h1`
 `;
 
 export const Header = styled.div`
-  border: 0.5em solid ${(props) => props.theme.borderColor};
+  /* border: 0.5em solid ${(props) => props.theme.borderColor}; */
   display: flex;
   flex-flow: column;
   width: 80%;
@@ -76,7 +76,7 @@ export const PhotoCard = styled.div`
 
 export const TitleDate = styled.div`
   display: flex;
-  flex-firection: row;
+  flex-direction: row;
   justify-content: space-around;
 `;
 
