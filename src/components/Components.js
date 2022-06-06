@@ -16,6 +16,7 @@ export const Button = styled.button`
   text-align: center;
   transition: all 0.2s;
   margin-bottom: 3%;
+  margin-right: 2%;
   &: hover {
     color: ${(props) => props.theme.backgroundColor};
     background-color: ${(props) => props.theme.textColor};
@@ -24,6 +25,7 @@ export const Button = styled.button`
 
 export const A = styled.a`
   display: inline-block;
+  flex-direction: column;justify-content: center;
   padding: 0.35em 1.2em;
   border: 0.2em solid ${(props) => props.theme.borderColor};
   margin: 0 0.3em 0.3em 0;
@@ -38,6 +40,7 @@ export const A = styled.a`
   text-align: center;
   transition: all 0.2s;
   margin-bottom: 3%;
+  margin-left: 2%;
   &: hover {
     color: ${(props) => props.theme.backgroundColor};
     background-color: ${(props) => props.theme.textColor};
@@ -52,7 +55,7 @@ export const H1 = styled.h1`
 export const Header = styled.div`
   border: 0.5em solid ${(props) => props.theme.borderColor};
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   width: 80%;
   align-content: center;
   margin-left: 10%;

@@ -50,9 +50,8 @@ function CardGetter() {
         <Header>
           <H1>NASA Photo Of The Day</H1>
           <Nav>
-            <Button>Home</Button>
             <A target="_blank" href="https://www.linkedin.com/in/sam-bezzant/">
-              Contact
+              Contact The Developer
             </A>
             <Button onClick={getRandom}>Get Random Image</Button>
             <Button onClick={themeToggler}>Dark/Light Mode</Button>
