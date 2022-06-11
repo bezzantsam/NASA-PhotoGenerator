@@ -25,7 +25,8 @@ export const Button = styled.button`
 
 export const A = styled.a`
   display: inline-block;
-  flex-direction: column;justify-content: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 0.35em 1.2em;
   border: 0.2em solid ${(props) => props.theme.borderColor};
   margin: 0 0.3em 0.3em 0;
@@ -53,8 +54,6 @@ export const H1 = styled.h1`
 `;
 
 export const Header = styled.div`
-  border-top: 0.5em solid ${(props) => props.theme.borderColor};
-  border-bottom: 0.5em solid ${(props) => props.theme.borderColor};
   display: flex;
   flex-flow: column;
   width: 80%;
