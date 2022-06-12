@@ -51,6 +51,7 @@ export const A = styled.a`
 export const H1 = styled.h1`
   font-size: 3.5em;
   font-style: italic;
+  margin-bottom: 1 em;
 `;
 
 export const Header = styled.div`
@@ -68,6 +69,7 @@ export const Header = styled.div`
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-around;
+  margin-top: 1 em;
 `;
 
 export const PhotoCard = styled.div`
